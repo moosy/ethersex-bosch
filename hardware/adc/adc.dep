@@ -1,0 +1,2 @@
+hardware/adc/adc.dep hardware/adc/adc.o hardware/adc/adc.E hardware/adc/adc.s: hardware/adc/adc.c hardware/adc/adc.h config.h autoconf.h \
+ pinning.c

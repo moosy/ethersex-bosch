@@ -1,0 +1,2 @@
+protocols/ems/ems_uart.dep protocols/ems/ems_uart.o protocols/ems/ems_uart.E protocols/ems/ems_uart.s: protocols/ems/ems_uart.c config.h autoconf.h pinning.c \
+ protocols/ems/ems.h core/usart.h core/bit-macros.h

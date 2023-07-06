@@ -1,0 +1,2 @@
+services/clock/clock_lib.dep services/clock/clock_lib.o services/clock/clock_lib.E services/clock/clock_lib.s: services/clock/clock_lib.c config.h autoconf.h pinning.c \
+ services/clock/clock_lib.h

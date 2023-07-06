@@ -1,0 +1,2 @@
+core/portio/named_pin.dep core/portio/named_pin.o core/portio/named_pin.E core/portio/named_pin.s: core/portio/named_pin.c config.h autoconf.h pinning.c \
+ core/debug.h core/global.h protocols/syslog/syslog_debug.h

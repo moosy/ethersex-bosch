@@ -1,0 +1,3 @@
+services/clock/clock_ecmd_date.dep services/clock/clock_ecmd_date.o services/clock/clock_ecmd_date.E services/clock/clock_ecmd_date.s: services/clock/clock_ecmd_date.c config.h autoconf.h \
+ pinning.c services/clock/clock.h services/clock/clock_lib.h \
+ services/clock/clock_ecmd_date.h protocols/ecmd/ecmd-base.h

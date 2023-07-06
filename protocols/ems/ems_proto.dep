@@ -1,0 +1,2 @@
+protocols/ems/ems_proto.dep protocols/ems/ems_proto.o protocols/ems/ems_proto.E protocols/ems/ems_proto.s: protocols/ems/ems_proto.c config.h autoconf.h pinning.c \
+ protocols/ems/ems.h

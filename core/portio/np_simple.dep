@@ -1,0 +1,1 @@
+core/portio/np_simple.dep core/portio/np_simple.o core/portio/np_simple.E core/portio/np_simple.s: core/portio/np_simple.c config.h autoconf.h pinning.c
