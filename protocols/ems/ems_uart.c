@@ -89,7 +89,7 @@ ems_uart_got_response(void)
 {
   if (response_wait_mode == WAIT_FOR_RESPONSE) {
     /* pretend being polled to trigger sending terminating address */
-    ems_poll_address = OUR_EMS_ADDRESS | EMS_REQUEST_MASK;
+    ems_poll_address = OUR_EMS_ADDRESS & ~EMS_REQUEST_MASK;
     response_wait_mode = NOT_WAITING;
   }
 }
@@ -97,7 +97,7 @@ ems_uart_got_response(void)
 static inline uint8_t
 is_polled(void)
 {
-  uint8_t polled = (ems_poll_address == (OUR_EMS_ADDRESS | EMS_REQUEST_MASK));
+  uint8_t polled = (ems_poll_address == (OUR_EMS_ADDRESS & ~EMS_REQUEST_MASK));
   if (response_wait_mode == WAIT_FOR_ACK) {
     if (ems_poll_address == EMS_RESPONSE_OK) {
       UPDATE_STATS(onebyte_ack_packets, 1);
@@ -204,12 +204,12 @@ ISR(usart(USART,_UDRE_vect))
         uint8_t byte = ems_send_buffer.data[ems_send_buffer.sent];
         if (ems_send_buffer.sent == tx_packet_start) {
           /* byte is the destination address */
-          if (byte & EMS_REQUEST_MASK) {
+          if (~(byte & EMS_REQUEST_MASK)) {
             response_wait_mode = WAIT_FOR_RESPONSE;
           } else {
             response_wait_mode = WAIT_FOR_ACK;
           }
-          last_send_dest = byte & ~EMS_REQUEST_MASK;
+          last_send_dest = byte | EMS_REQUEST_MASK;
           ems_set_led(LED_TX, 1, 0);
         }
         ems_send_buffer.sent++;

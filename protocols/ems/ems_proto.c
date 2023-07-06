@@ -59,6 +59,7 @@ process_prepare_buffer(uint8_t source_byte)
       UPDATE_STATS(onebyte_packets, 1);
       return;
     } else {
+//      debug_printf("##### ACK OR NACK FROM %02x ########## ",source_byte);
       /* this was ack or nack, construct fake packet */
       prepare_buffer[3] = prepare_buffer[0];
       prepare_buffer[0] = source_byte;

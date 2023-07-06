@@ -126,6 +126,8 @@ ems_uart_process_input_byte(uint8_t data, uint8_t status)
   static uint8_t packet_bytes = 0;
   static uint8_t last_data;
   uint8_t index = ems_input_buffer.count;
+  
+//  debug_printf("%02x",data);
 
   if (status & FRAMEEND) {
     /* end-of-frame */
@@ -133,7 +135,7 @@ ems_uart_process_input_byte(uint8_t data, uint8_t status)
     ems_input_buffer.eop[EOP_BYTE(index)] |= EOP_BIT(index);
     ems_input_buffer.count++;
     ems_poll_address = (packet_bytes == 1) ? last_data : 0;
-    if (packet_bytes > 1 && last_destination == OUR_EMS_ADDRESS) {
+    if (packet_bytes > 1 && (last_destination | 0x80) == OUR_EMS_ADDRESS) {
       ems_uart_got_response();
     }
     EMSIODEBUG("Got packet with %d bytes\n", packet_bytes);

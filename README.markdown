@@ -1,3 +1,16 @@
+Note
+====
+
+This version has modifications to Danny Baumann's EMS patches and is only
+intended for use in the EMS gateway based on Pollins NetIO.
+
+It is NOT compatible with the older RC35 Buderus control units and similar!
+
+It implements the changes for the Bosch EMS2 dialect used by Bosch Condens
+9800i heating systems or similar using the UI800 control unit.
+
+
+
 About Ethersex
 ==============
 Ethersex, originally developed to provide an alternative firmware for the [etherrape hardware](http://www.lochraster.org/etherrape),

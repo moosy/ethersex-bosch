@@ -21,7 +21,7 @@
 #ifndef _EMS_H
 #define _EMS_H
 
-#define OUR_EMS_ADDRESS     0x0b
+#define OUR_EMS_ADDRESS     0x8b
 #define EMS_REQUEST_MASK    0x80
 #define EMS_MSG_TYPE_RESP   0xff
 #define EMS_RESPONSE_OK     0x01
